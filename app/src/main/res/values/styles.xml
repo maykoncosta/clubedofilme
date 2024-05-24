@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="clube_do_filme">
+        <item name="android:textSize">50sp</item>
+        <item name="android:letterSpacing">0.09</item>
+        <item name="android:fontFamily">@font/aclonica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="registre_se">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat_light</item>
+    </style>
+    <style name="cadastre_se">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+    <style name="fazer_login">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <!--<item name="android:background">@drawable/cta1</item>-->
+        <item name="background">@color/white</item>
+    </style>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@drawable/background_home_"
+    tools:context=".activities.LoginActivity">
+
+    <TextView
+        android:id="@+id/clube_do_fi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal|top"
+        android:layout_gravity="center"
+        android:text="@string/clube_do_filme"
+        android:textAppearance="@style/clube_do_filme" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/edit_text_login"
+        android:hint="Email"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/edit_text_login"
+        android:hint="Senha"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="-5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/cta1"
+        android:fontFamily="@font/baloo"
+        android:textSize="27sp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/forgotPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:textSize="16sp"
+        android:fontFamily="@font/baloo"
+        android:text="Esqueceu a senha?"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/baloo"
+        android:text="@string/cadastre_se"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textColor="@android:color/white" />
+</LinearLayout>

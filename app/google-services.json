@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "855243372409",
+    "project_id": "clube-do-filme-1a99f",
+    "storage_bucket": "clube-do-filme-1a99f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855243372409:android:a5e03704fe5aec273321a8",
+        "android_client_info": {
+          "package_name": "com.example.clubedofilme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmNpSflCoe9Ja0nv-U2_R-kTcsZYjXQQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

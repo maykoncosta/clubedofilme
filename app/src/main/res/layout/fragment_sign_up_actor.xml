@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".fragments.SignUpActorFragment">
+
+    <!-- Campo de pesquisa -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_light"
+        android:text="Quais desses são seus atores favoritos?"/>
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_register"
+        android:hint="Pesquisar"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF" />
+
+    <!-- Imagens de atores -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/actorsRecyclerView"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/continueButton"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/checkImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/scroll_infinite"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Botão Continuar -->
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/cta1"
+        android:fontFamily="@font/baloo"
+        android:letterSpacing="0.09"
+        android:text="continue"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+</GridLayout>

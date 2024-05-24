@@ -1,4 +1,4 @@
-package com.example.clubedofilme
+package com.clubedofilme
 
 import org.junit.Test
 

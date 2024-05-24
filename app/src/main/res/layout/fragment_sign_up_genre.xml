@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".fragments.SignUpGenreFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_light"
+        android:textStyle="bold"
+        android:text="Escolha seus generos favoritos!"/>
+
+    <!-- Spinner para selecionar gêneros -->
+    <Spinner
+        android:id="@+id/genreSpinner1"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_register"
+        android:layout_gravity="center"
+        android:textColorHint="#cecece"
+        android:padding="10dp"
+        android:layout_marginTop="30dp" />
+
+    <Spinner
+        android:id="@+id/genreSpinner2"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_register"
+        android:textColorHint="#cecece"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="30dp" />
+
+    <Spinner
+        android:id="@+id/genreSpinner3"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_register"
+        android:textColorHint="#cecece"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="30dp" />
+
+    <Spinner
+        android:id="@+id/genreSpinner4"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_register"
+        android:textColorHint="#cecece"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="30dp" />
+
+    <!-- Botão Continuar -->
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/cta1"
+        android:fontFamily="@font/baloo"
+        android:letterSpacing="0.09"
+        android:text="continue"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

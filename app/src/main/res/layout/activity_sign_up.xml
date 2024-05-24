@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#09142F"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".activities.SignUpActivity">
+
+    <TextView
+        android:id="@+id/clube_do_fi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal|top"
+        android:text="@string/clube_do_filme"
+        android:textAppearance="@style/clube_do_filme"
+        android:layout_gravity="center"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="30dp"/>
+
+</LinearLayout>
