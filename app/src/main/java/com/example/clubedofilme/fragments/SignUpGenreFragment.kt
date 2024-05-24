@@ -1,21 +1,26 @@
 package com.example.clubedofilme.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.clubedofilme.R
+import com.example.clubedofilme.activities.SignUpActivity
 import com.example.clubedofilme.databinding.FragmentSignUpGenreBinding
+import com.example.clubedofilme.models.Genre
+import com.example.clubedofilme.repositories.MovieRepository
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
 class SignUpGenreFragment : Fragment() {
 
     private var _binding: FragmentSignUpGenreBinding? = null
     private val binding get() = _binding!!
-
+    private val movieRepository = MovieRepository()
     private val signUpViewModel: SignUpViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -29,24 +34,48 @@ class SignUpGenreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Exemplo de lista de gêneros
-        val genres = arrayOf("Action", "Comedy", "Drama", "Horror", "Romance", "Sci-Fi", "Thriller")
+        fetchGenres()
 
-        // Configurar os Spinners com a lista de gêneros
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, genres)
+        binding.continueButton.setOnClickListener {
+            val selectedGenres = listOf(
+                binding.genreSpinner1.selectedItem as String,
+                binding.genreSpinner2.selectedItem as String,
+                binding.genreSpinner3.selectedItem as String,
+                binding.genreSpinner4.selectedItem as String
+            ).filter { it != "Selecione" }
+
+            Log.v("SignUpGenreFragment", "Selected genres: $selectedGenres")
+
+            if (selectedGenres.size > 4) {
+                Toast.makeText(requireContext(), "Você pode selecionar até 4 gêneros", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            signUpViewModel.setFavoriteGenres(selectedGenres)
+
+            (activity as SignUpActivity).navigateToFragment(SignUpActorFragment())
+        }
+    }
+
+    private fun fetchGenres() {
+        movieRepository.fetchGenres() { genres ->
+            if (genres != null) {
+                val genreList = mutableListOf(Genre(0, "Selecione")).apply { addAll(genres) }
+                setupSpinners(genreList)
+            } else {
+                Toast.makeText(requireContext(), "Falha ao carregar os gêneros", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupSpinners(genres: List<Genre>) {
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, genres.map { it.name })
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         binding.genreSpinner1.adapter = adapter
         binding.genreSpinner2.adapter = adapter
         binding.genreSpinner3.adapter = adapter
         binding.genreSpinner4.adapter = adapter
-
-        binding.continueButton.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, SignUpActorFragment())
-                .addToBackStack(null)
-                .commit()
-        }
     }
 
     override fun onDestroyView() {

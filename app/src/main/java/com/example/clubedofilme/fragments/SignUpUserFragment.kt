@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.clubedofilme.R
+import com.example.clubedofilme.activities.SignUpActivity
 import com.example.clubedofilme.databinding.FragmentSignUpUserBinding
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
@@ -37,10 +38,8 @@ class SignUpUserFragment : Fragment() {
 
             if(validateUserData(username, email, password, repeatPass)) {
                 changeUserData(username, email, password)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, SignUpMovieFragment())
-                    .addToBackStack(null)
-                    .commit()
+                (activity as SignUpActivity).navigateToFragment(SignUpMovieFragment())
+
             }else {
                 showErrorMessage()
             }

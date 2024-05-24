@@ -51,7 +51,7 @@
 
     <!-- Botão Continuar -->
     <Button
-        android:id="@+id/continueButton"
+        android:id="@+id/regiterButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -59,7 +59,7 @@
         android:background="@drawable/cta1"
         android:fontFamily="@font/baloo"
         android:letterSpacing="0.09"
-        android:text="continue"
+        android:text="finalizar"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="20sp" />

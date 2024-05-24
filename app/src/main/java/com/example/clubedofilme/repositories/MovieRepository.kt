@@ -5,6 +5,8 @@ import com.example.clubedofilme.api.ApiClient
 import com.example.clubedofilme.api.MovieService
 import com.example.clubedofilme.models.Actor
 import com.example.clubedofilme.models.ActorResponse
+import com.example.clubedofilme.models.Genre
+import com.example.clubedofilme.models.GenreResponse
 import com.example.clubedofilme.models.Movie
 import com.example.clubedofilme.models.MovieResponse
 import retrofit2.Call
@@ -36,7 +38,6 @@ class MovieRepository {
         movieService.getPopularActors(apiKey, page).enqueue(object : Callback<ActorResponse> {
             override fun onResponse(call: Call<ActorResponse>, response: Response<ActorResponse>) {
                 if (response.isSuccessful) {
-                    Log.v("MovieRepository", "fetchPopularActors: ${response.body()?.actors}")
                     callback(response.body()?.actors)
                 } else {
                     callback(null)
@@ -76,6 +77,23 @@ class MovieRepository {
             }
 
             override fun onFailure(call: Call<ActorResponse>, t: Throwable) {
+                callback(null)
+            }
+        })
+    }
+
+    fun fetchGenres(callback: (List<Genre>?) -> Unit) {
+        val call = movieService.getGenres(apiKey)
+        call.enqueue(object : Callback<GenreResponse> {
+            override fun onResponse(call: Call<GenreResponse>, response: Response<GenreResponse>) {
+                if (response.isSuccessful) {
+                    callback(response.body()?.genres)
+                } else {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<GenreResponse>, t: Throwable) {
                 callback(null)
             }
         })

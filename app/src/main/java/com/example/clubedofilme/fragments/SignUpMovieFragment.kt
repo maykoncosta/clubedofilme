@@ -13,6 +13,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clubedofilme.R
+import com.example.clubedofilme.activities.SignUpActivity
 import com.example.clubedofilme.adapters.MovieAdapter
 import com.example.clubedofilme.databinding.FragmentSignUpMovieBinding
 import com.example.clubedofilme.models.Movie
@@ -67,13 +68,14 @@ class SignUpMovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
         binding.continueButton.setOnClickListener {
             val selectedMovies = movieAdapter.getSelectedMovies()
             signUpViewModel.setFavoriteMovies(selectedMovies.toList())
-            Log.v("SignUpMovieFragment", "selectedMovies ${signUpViewModel.favoriteMovies.value}")
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, SignUpGenreFragment())
-                .addToBackStack(null)
-                .commit()
+            Log.v("SignUpMovieFragment", "selectedMovies")
+            (activity as SignUpActivity).navigateToFragment(SignUpGenreFragment())
         }
 
+        listenerSearch()
+    }
+
+    private fun listenerSearch() {
         binding.searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -100,7 +102,7 @@ class SignUpMovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
 
     private fun fetchMovies(page: Int) {
         movieRepository.fetchPopularMovies(page) { movies ->
-            Log.v("SignUpMovieFragment", "fetchMovies ${signUpViewModel.username.value}")
+            Log.v("SignUpMovieFragment", "fetchMovies")
             if (movies != null) {
                 movieList.addAll(movies)
                 movieAdapter.notifyDataSetChanged()
@@ -113,9 +115,6 @@ class SignUpMovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
     private fun searchMovies(query: String, page: Int) {
         movieRepository.searchMovies(query, page) { movies ->
             Log.v("SignUpMovieFragment", "searchMovies")
-            if(page == 1) {
-                movieList.clear()
-            }
             if (movies != null) {
                 movieList.addAll(movies)
                 movieAdapter.notifyDataSetChanged()

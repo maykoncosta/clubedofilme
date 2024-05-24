@@ -1,5 +1,6 @@
 package com.example.clubedofilme.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,14 +11,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.clubedofilme.R
+import com.example.clubedofilme.activities.LoginActivity
 import com.example.clubedofilme.adapters.ActorAdapter
 import com.example.clubedofilme.databinding.FragmentSignUpActorBinding
 import com.example.clubedofilme.models.Actor
 import com.example.clubedofilme.repositories.MovieRepository
 import com.example.clubedofilme.utils.EndlessRecyclerViewScrollListener
+import com.example.clubedofilme.viewmodels.AuthViewModel
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
 class SignUpActorFragment : Fragment(), ActorAdapter.OnItemClickListener {
@@ -32,6 +35,7 @@ class SignUpActorFragment : Fragment(), ActorAdapter.OnItemClickListener {
     private var currentPage = 1
 
     private val signUpViewModel: SignUpViewModel by activityViewModels()
+    private val authViewModel: AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,8 +66,41 @@ class SignUpActorFragment : Fragment(), ActorAdapter.OnItemClickListener {
 
         binding.actorsRecyclerView.addOnScrollListener(scrollListener)
 
+        binding.regiterButton.setOnClickListener {
+            val selectedActors = actorAdapter.getSelectedActors()
+            signUpViewModel.setFavoriteActors(selectedActors.toList())
+
+            val userInfo = hashMapOf(
+                "username" to signUpViewModel.username.value,
+                "email" to signUpViewModel.email.value,
+                "favoriteMovies" to signUpViewModel.favoriteMovies.value,
+                "favoriteActors" to signUpViewModel.favoriteActors.value,
+                "favoriteGenres" to signUpViewModel.favoriteGenres.value
+            )
+            authViewModel.registerUser(signUpViewModel.email.value!!, signUpViewModel.password.value!!, userInfo)
+
+        }
+
+        authViewModel.authError.observe(viewLifecycleOwner) { error ->
+            error?.let {
+                Toast.makeText(requireContext(), "Erro ao cadastrar: $it", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        authViewModel.user.observe(viewLifecycleOwner) { user ->
+            user?.let {
+                Toast.makeText(requireContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+                activity?.startActivity(Intent(activity, LoginActivity::class.java))
+                activity?.finish()
+            }
+        }
+
         fetchActors(1)
 
+        listenerSearch()
+    }
+
+    private fun listenerSearch() {
         binding.searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
