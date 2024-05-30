@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="20dp" /> <!-- Ajuste o raio das bordas conforme necessário -->
-    <gradient
-        android:angle="270"
-        android:startColor="#8000050C"
-        android:endColor="#FF002657"
-        android:type="linear" />
-</shape>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="311dp"
+    android:height="55dp"
+    android:viewportWidth="311"
+    android:viewportHeight="55"
+    >
+    <group>
+        <clip-path
+            android:pathData="M16 0H295C303.837 0 311 7.16344 311 16V39C311 47.8366 303.837 55 295 55H16C7.16344 55 0 47.8366 0 39V16C0 7.16344 7.16344 0 16 0Z"
+            />
+        <group
+            android:translateX="0.742"
+            android:translateY="18.922"
+            android:pivotX="155.5"
+            android:pivotY="27.5"
+            android:scaleX="2.259"
+            android:scaleY="72.811"
+            android:rotation="-154.272"
+            >
+            <path
+                android:pathData="M0 0V55H311V0"
+                >
+                <aapt:attr name="android:fillColor">
+                    <gradient
+                        android:type="linear"
+                        android:startX="77.75"
+                        android:startY="27.5"
+                        android:endX="233.25"
+                        android:endY="27.5"
+                        >
+                        <item
+                            android:color="#02050C"
+                            android:offset="0"
+                            />
+                        <item
+                            android:color="#112657"
+                            android:offset="1"
+                            />
+                    </gradient>
+                </aapt:attr>
+            </path>
+        </group>
+    </group>
+</vector>

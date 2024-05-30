@@ -99,4 +99,20 @@ class MovieRepository {
         })
     }
 
+    fun fetchLatestMovies(page: Int, callback: (List<Movie>?) -> Unit) {
+        movieService.getLatestMovies(apiKey, page).enqueue(object : Callback<MovieResponse> {
+            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
+                if (response.isSuccessful) {
+                    callback(response.body()?.movies)
+                } else {
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                callback(null)
+            }
+        })
+    }
+
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".fragments.UserInfoFragment"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:background="#00FFFFFF"
+        android:textAllCaps="true"
+        android:fontFamily="@font/baloo"
+        android:text="detalhes da conta"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:padding="16dp"
+        android:background="@drawable/textview_custom"
+        android:text="MAYKON SI SI SI"
+        android:textColor="@color/borderDisabled"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/userEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:padding="16dp"
+        android:background="@drawable/textview_custom"
+        android:text="xxxxxxxxxx@gmail.com"
+        android:textColor="@color/borderDisabled"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/editPreferencesButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:drawableStart="@drawable/ic_info"
+        android:gravity="start"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:text="EDITAR PREFERENCIAS" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        style="@style/CustomLogoutButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:gravity="start"
+        android:drawableStart="@drawable/logout"
+        android:drawableEnd="@drawable/ic_arrow_logout"
+        android:text="SAIR"
+        tools:ignore="ExtraText" />
+</LinearLayout>

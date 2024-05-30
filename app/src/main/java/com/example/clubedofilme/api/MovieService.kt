@@ -43,4 +43,11 @@ interface MovieService {
         @Query("api_key") apiKey: String,
         @Query("language") language: String = "pt-BR"
     ): Call<GenreResponse>
+
+    @GET("movie/upcoming")
+    fun getLatestMovies(
+        @Query("api_key") apiKey: String,
+        @Query("page") page: Int,
+        @Query("language") language: String = "pt-BR"
+    ): Call<MovieResponse>
 }

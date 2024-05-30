@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="@drawable/cta1"
+        android:background="@drawable/button_default"
         android:fontFamily="@font/baloo"
         android:letterSpacing="0.09"
         android:text="continue"

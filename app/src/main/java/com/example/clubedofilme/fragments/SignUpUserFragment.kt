@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.clubedofilme.R
 import com.example.clubedofilme.activities.SignUpActivity
 import com.example.clubedofilme.databinding.FragmentSignUpUserBinding
+import com.example.clubedofilme.utils.ToastUtils
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
 class SignUpUserFragment : Fragment() {
@@ -69,7 +70,7 @@ class SignUpUserFragment : Fragment() {
     }
 
     private fun showErrorMessage() {
-        Toast.makeText(requireContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
+        ToastUtils.showCustomToast(requireContext(), "Preencha todos os campos!", android.R.drawable.ic_dialog_alert)
     }
 
     fun validateEmail(email: String): Boolean {

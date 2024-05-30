@@ -14,6 +14,7 @@ import com.example.clubedofilme.activities.SignUpActivity
 import com.example.clubedofilme.databinding.FragmentSignUpGenreBinding
 import com.example.clubedofilme.models.Genre
 import com.example.clubedofilme.repositories.MovieRepository
+import com.example.clubedofilme.utils.ToastUtils
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
 class SignUpGenreFragment : Fragment() {
@@ -47,7 +48,7 @@ class SignUpGenreFragment : Fragment() {
             Log.v("SignUpGenreFragment", "Selected genres: $selectedGenres")
 
             if (selectedGenres.size > 4) {
-                Toast.makeText(requireContext(), "Você pode selecionar até 4 gêneros", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Selecione até 4 generos!", android.R.drawable.ic_dialog_alert)
                 return@setOnClickListener
             }
 
@@ -63,14 +64,14 @@ class SignUpGenreFragment : Fragment() {
                 val genreList = mutableListOf(Genre(0, "Selecione")).apply { addAll(genres) }
                 setupSpinners(genreList)
             } else {
-                Toast.makeText(requireContext(), "Falha ao carregar os gêneros", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Erro ao carregar os generos!", android.R.drawable.ic_dialog_alert)
             }
         }
     }
 
     private fun setupSpinners(genres: List<Genre>) {
         val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, genres.map { it.name })
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
         binding.genreSpinner1.adapter = adapter
         binding.genreSpinner2.adapter = adapter

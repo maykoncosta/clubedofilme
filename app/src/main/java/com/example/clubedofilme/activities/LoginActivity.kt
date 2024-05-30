@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.clubedofilme.databinding.ActivityLoginBinding
+import com.example.clubedofilme.utils.ToastUtils
 import com.example.clubedofilme.viewmodels.AuthViewModel
 
 
@@ -26,14 +27,14 @@ class LoginActivity : AppCompatActivity() {
 
         authViewModel.authError.observe(this) { error ->
             error?.let {
-                Toast.makeText(this, "Autenticacao com erro: $it", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(this, "Autenticacao com erro: $it", R.drawable.ic_dialog_alert)
             }
         }
 
         authViewModel.user.observe(this) { user ->
             user?.let {
-                Toast.makeText(this, "Usuario autenticado com sucesso", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, MainActivity::class.java))
+                ToastUtils.showCustomToast(this, "Login feito com sucesso!", R.drawable.ic_dialog_info)
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
         }

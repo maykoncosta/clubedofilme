@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/background_secundary" /> <!-- 80 é o valor de transparência no formato ARGB -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/background" /> <!-- Cor e largura da borda -->
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" /> <!-- Padding interno -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/background"
+        />
+</shape>
+
+

@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF6200EE</color>
+    <color name="background">#09142F</color>
+    <color name="background_secundary">#651FFF</color>
+    <color name="buttonColor">#3F51B5</color>
+    <color name="buttonPressedColor">#303F9F</color>
+    <color name="logoutColor">#D32F2F</color>
+    <color name="logoutPressedColor">#B71C1C</color>
+    <color name="borderDisabled">#cecece</color>
 </resources>

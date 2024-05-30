@@ -9,21 +9,6 @@
     android:layout_gravity="center"
     tools:context=".activities.MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph"/>
-
     <TextView
         android:id="@+id/clube_do_fi"
         android:layout_width="wrap_content"
@@ -51,9 +36,8 @@
         android:layout_height="50dp"
         android:background="@drawable/cta1"
         android:layout_gravity="center"
-        android:clickable="false"
         android:text="@string/cadastre_se"
-        android:paddingTop="-5dp"
+        android:padding="10dp"
         android:textAppearance="@style/cadastre_se" />
 
     <Button

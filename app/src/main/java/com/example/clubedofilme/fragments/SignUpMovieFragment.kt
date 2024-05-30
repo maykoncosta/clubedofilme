@@ -19,6 +19,7 @@ import com.example.clubedofilme.databinding.FragmentSignUpMovieBinding
 import com.example.clubedofilme.models.Movie
 import com.example.clubedofilme.repositories.MovieRepository
 import com.example.clubedofilme.utils.EndlessRecyclerViewScrollListener
+import com.example.clubedofilme.utils.ToastUtils
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
 class SignUpMovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
@@ -107,7 +108,7 @@ class SignUpMovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
                 movieList.addAll(movies)
                 movieAdapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireContext(), "Failed to load movies", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Erro ao carregar os filmes!", android.R.drawable.ic_dialog_alert)
             }
         }
     }
@@ -119,7 +120,7 @@ class SignUpMovieFragment : Fragment(), MovieAdapter.OnItemClickListener {
                 movieList.addAll(movies)
                 movieAdapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireContext(), "Failed to search movies", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Erro ao carregar os filmes!", android.R.drawable.ic_dialog_alert)
             }
         }
     }

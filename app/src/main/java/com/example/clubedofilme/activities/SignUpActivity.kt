@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.clubedofilme.R
 import com.example.clubedofilme.databinding.ActivitySignUpBinding
 import com.example.clubedofilme.fragments.SignUpUserFragment
+import com.example.clubedofilme.utils.ToastUtils
 import com.example.clubedofilme.viewmodels.AuthViewModel
 
 class SignUpActivity : AppCompatActivity() {
@@ -24,13 +25,14 @@ class SignUpActivity : AppCompatActivity() {
 
         authViewModel.authError.observe(this) { error ->
             error?.let {
-                Toast.makeText(this, "Authentication failed: $it", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(this, "Falha na autenticação!", android.R.drawable.ic_dialog_alert)
             }
         }
 
         authViewModel.user.observe(this) { user ->
             Log.v("SignUpActivity", "User: $user")
             Toast.makeText(this, "Usuario Criado com Sucesso", Toast.LENGTH_SHORT).show()
+            ToastUtils.showCustomToast(this, "Usuario Criado com Sucesso!", android.R.drawable.ic_dialog_info)
             user?.let {
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()

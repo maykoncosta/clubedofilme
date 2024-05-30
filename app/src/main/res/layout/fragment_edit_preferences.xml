@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".fragments.EditPreferencesFragment"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:background="#00FFFFFF"
+        android:textAllCaps="true"
+        android:fontFamily="@font/baloo"
+        android:text="editar preferências"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/editMoviesButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:gravity="start"
+        android:drawableStart="@drawable/ic_movie"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:textAllCaps="true"
+        android:text="editar filmes" />
+
+    <Button
+        android:id="@+id/editGenresButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:gravity="start"
+        android:drawableStart="@drawable/ic_book"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:textAllCaps="true"
+        android:text="editar generos" />
+
+    <Button
+        android:id="@+id/editActorsButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:gravity="start"
+        android:drawableStart="@drawable/ic_group"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:textAllCaps="true"
+        android:text="editar atores" />
+</LinearLayout>

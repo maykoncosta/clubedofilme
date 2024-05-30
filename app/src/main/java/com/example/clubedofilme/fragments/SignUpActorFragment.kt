@@ -20,6 +20,7 @@ import com.example.clubedofilme.databinding.FragmentSignUpActorBinding
 import com.example.clubedofilme.models.Actor
 import com.example.clubedofilme.repositories.MovieRepository
 import com.example.clubedofilme.utils.EndlessRecyclerViewScrollListener
+import com.example.clubedofilme.utils.ToastUtils
 import com.example.clubedofilme.viewmodels.AuthViewModel
 import com.example.clubedofilme.viewmodels.SignUpViewModel
 
@@ -83,13 +84,13 @@ class SignUpActorFragment : Fragment(), ActorAdapter.OnItemClickListener {
 
         authViewModel.authError.observe(viewLifecycleOwner) { error ->
             error?.let {
-                Toast.makeText(requireContext(), "Erro ao cadastrar: $it", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Erro ao cadastrar!", android.R.drawable.ic_dialog_alert)
             }
         }
 
         authViewModel.user.observe(viewLifecycleOwner) { user ->
             user?.let {
-                Toast.makeText(requireContext(), "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Usuário cadastrado com sucesso!", android.R.drawable.ic_dialog_info)
                 activity?.startActivity(Intent(activity, LoginActivity::class.java))
                 activity?.finish()
             }
@@ -132,7 +133,7 @@ class SignUpActorFragment : Fragment(), ActorAdapter.OnItemClickListener {
                 actorList.addAll(actors)
                 actorAdapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireContext(), "Faila ao carregar os atores", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Erro ao carregar os atores!", android.R.drawable.ic_dialog_alert)
             }
         }
     }
@@ -144,7 +145,7 @@ class SignUpActorFragment : Fragment(), ActorAdapter.OnItemClickListener {
                 actorList.addAll(actors)
                 actorAdapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireContext(), "Faila ao carregar os atores", Toast.LENGTH_SHORT).show()
+                ToastUtils.showCustomToast(requireContext(), "Erro ao carregar os atores!", android.R.drawable.ic_dialog_alert)
             }
         }
     }
